@@ -1,4 +1,8 @@
-const { register, getUserByEmail } = require("../models/auth.models");
+const {
+  register,
+  getUserByEmail,
+  authenticate,
+} = require("../models/auth.models");
 const bcyrpt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 require("dotenv").config();
@@ -58,6 +62,25 @@ module.exports = {
         status: true,
         message: "success",
         data: token,
+      });
+    } catch (error) {
+      res.status(500).json({
+        status: false,
+        message: error.message,
+        data: null,
+      });
+    }
+  },
+  authenticate: async (req, res) => {
+    try {
+      const user_id = req.user.id;
+
+      const user = await authenticate(user_id);
+
+      res.status(200).json({
+        status: true,
+        message: "success",
+        data: user.rows,
       });
     } catch (error) {
       res.status(500).json({

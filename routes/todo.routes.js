@@ -1,10 +1,11 @@
 const router = require("express").Router();
-const { get } = require("../controllers/todo.controllers");
+const { get, post, getByid } = require("../controllers/todo.controllers");
+const authenticateToken = require("../middlewares/auth.middleware");
 
-router.get("/", get);
+router.get("/", authenticateToken, get);
 
-router.get("/:id", (req, res) => {
-  res.send("Specific todo by id " + req.params.id);
-});
+router.get("/:todo_id", authenticateToken, getByid);
+
+router.post("/", authenticateToken, post);
 
 module.exports = router;

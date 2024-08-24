@@ -22,4 +22,14 @@ module.exports = {
       throw error;
     }
   },
+  authenticate: async (user_id) => {
+    try {
+      return await db.query(
+        "SELECT id, email, username FROM users WHERE id = $1",
+        [user_id]
+      );
+    } catch (error) {
+      throw error;
+    }
+  },
 };
