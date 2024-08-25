@@ -45,19 +45,13 @@ module.exports = {
   getByid: async (req, res) => {
     try {
       const id = req.params.todo_id;
-
-      const result = await getById(id);
-
-      const user_id_from_token = req.user.id;
-      const user_id_from_todo = result.rows[0].user_id;
-      if (user_id_from_todo !== user_id_from_token) {
-        throw new Error("You cannot access this resource");
-      }
+      const user_id = req.user.id;
+      const todo = await getTodoById(id, user_id);
 
       res.status(200).json({
         status: true,
         message: "success",
-        data: result.rows[0],
+        data: todo.rows[0],
       });
     } catch (error) {
       res.status(500).json({
@@ -90,15 +84,11 @@ module.exports = {
   update: async (req, res) => {
     try {
       const id = req.params.todo_id;
+      const user_id = req.user.id;
+
       const { title, description } = req.body;
 
-      const todo = await getById(id);
-
-      const user_id_from_token = req.user.id;
-      const user_id_from_todo = todo.rows[0].user_id;
-      if (user_id_from_todo !== user_id_from_token) {
-        throw new Error("You cannot access this resource");
-      }
+      const todo = await getTodoById(id, user_id);
 
       const todo_id = todo.rows[0].id;
 
@@ -142,13 +132,8 @@ module.exports = {
   softDelete: async (req, res) => {
     try {
       const id = req.params.todo_id;
-      const todo = await getById(id);
-
-      const user_id_from_token = req.user.id;
-      const user_id_from_todo = todo.rows[0].user_id;
-      if (user_id_from_todo !== user_id_from_token) {
-        throw new Error("You cannot access this resource");
-      }
+      const user_id = req.user.id;
+      const todo = await getTodoById(id, user_id);
 
       const result = await softDelete(todo.rows[0].id);
 
@@ -168,13 +153,8 @@ module.exports = {
   hardDelete: async (req, res) => {
     try {
       const id = req.params.todo_id;
-      const todo = await getById(id);
-
-      const user_id_from_token = req.user.id;
-      const user_id_from_todo = todo.rows[0].user_id;
-      if (user_id_from_todo !== user_id_from_token) {
-        throw new Error("You cannot access this resource");
-      }
+      const user_id = req.user.id;
+      const todo = await getTodoById(id, user_id);
 
       await hardDelete(todo.rows[0].id);
 

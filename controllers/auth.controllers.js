@@ -12,6 +12,16 @@ module.exports = {
     try {
       const { email, username, pin } = req.body;
 
+      // Check if user exist
+      const isEmailExist = await getUserByEmail(email);
+
+      if (isEmailExist) {
+        return res.status(400).json({
+          status: false,
+          message: "Email already used",
+        });
+      }
+
       const salt = 10;
       const hashedPin = await bcyrpt.hash(pin, salt);
 

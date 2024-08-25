@@ -7,14 +7,23 @@
     "start": "npm run setup-db && node app.js",
     "setup-db": "node ./config/db/setup-database.js"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "description": "",
+  "keywords": [
+    "mock-test",
+    "binar",
+    "back-end"
+  ],
+  "author": {
+    "name": "Jhontri Boyke",
+    "email": "jhontriboyke@gmail.com",
+    "url": "https://github.com/jhontriboyke"
+  },
+  "license": "MIT",
+  "description": "Binar Backend JavaScript FSW Mock Test",
   "dependencies": {
     "bcrypt": "^5.1.1",
     "dotenv": "^16.4.5",
     "express": "^4.19.2",
+    "joi": "^17.13.3",
     "jsonwebtoken": "^9.0.2",
     "pg": "^8.12.0"
   },
