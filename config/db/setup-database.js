@@ -24,7 +24,6 @@ const sql = `
 
 db.query(sql)
   .then((res) => {
-    console.log("Success created table");
     db.end();
   })
   .catch((err) => {
