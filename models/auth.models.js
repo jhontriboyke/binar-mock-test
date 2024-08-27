@@ -1,4 +1,5 @@
 const db = require("../config/db/database");
+const { UnauthorizedError } = require("../helpers/errors");
 
 module.exports = {
   register: async (email, username, pin) => {
@@ -29,7 +30,7 @@ module.exports = {
         [user_id]
       );
     } catch (error) {
-      throw error;
+      throw new UnauthorizedError("You cannot access this resource");
     }
   },
 };

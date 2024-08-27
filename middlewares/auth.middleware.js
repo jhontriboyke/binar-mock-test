@@ -1,4 +1,5 @@
 const jwt = require("jsonwebtoken");
+const { UnauthorizedError, ValidationError } = require("../helpers/errors");
 require("dotenv").config();
 
 const authenticateToken = (req, res, next) => {
@@ -6,7 +7,7 @@ const authenticateToken = (req, res, next) => {
     const header = req.header("Authorization");
 
     if (!header) {
-      throw new Error("Authorization header not found");
+      throw new UnauthorizedError("Authorization header not found");
     }
 
     const token = header.split(" ")[1];
@@ -24,16 +25,10 @@ const authenticateToken = (req, res, next) => {
       req.user = user;
       next();
     } catch (error) {
-      res.status(500).json({
-        status: false,
-        message: error.message,
-      });
+      throw new ValidationError(error.message);
     }
   } catch (error) {
-    res.status(500).json({
-      status: false,
-      message: error.message,
-    });
+    next(error);
   }
 };
 

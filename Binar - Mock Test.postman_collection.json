@@ -1,0 +1,1643 @@
+{
+	"info": {
+		"_postman_id": "1554332b-0a11-4b46-9b8a-97f6d0e0ea49",
+		"name": "Binar - Mock Test",
+		"description": "Binar Backend JavaScript Bootcamp - FSW Mock Test (Backend)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "33540829"
+	},
+	"item": [
+		{
+			"name": "POST auth register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"jhontriboyke@mail.com\",\r\n    \"username\": \"jhontriboyke\",\r\n    \"pin\": \"112233\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:{{port}}/auth/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "{{port}}",
+					"path": [
+						"auth",
+						"register"
+					]
+				},
+				"description": "This endpoint is for creating new user by provide valid email, username, and pin (6 length)."
+			},
+			"response": [
+				{
+					"name": "201 status",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"jhontriboyke@mail.com\",\r\n    \"username\": \"jhontriboyke\",\r\n    \"pin\": \"112233\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/auth/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"auth",
+								"register"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "260"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"104-qE5gkkQtmVWLJOD5ccylo2uc98I\""
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 27 Aug 2024 12:32:03 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": true,\n    \"message\": \"user created\",\n    \"data\": {\n        \"id\": \"4a4afb24-4d53-4a16-a980-a69fc4956884\",\n        \"email\": \"jhontriboyke@mail.com\",\n        \"username\": \"jhontriboyke\",\n        \"pin\": \"$2b$10$M1BiIxpUnaGF6QhnJX2H9e3eqMqwsy8RLXDXhqQKY/LszOw7/h00y\",\n        \"created_at\": \"2024-08-27T12:32:02.988Z\"\n    }\n}"
+				},
+				{
+					"name": "400 status",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"jhontriboyke@\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:{{port}}/auth/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "{{port}}",
+							"path": [
+								"auth",
+								"register"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "75"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"4b-Kk+O9TRzAh48yGgdHABzR2+OAaU\""
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 27 Aug 2024 12:28:49 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": false,\n    \"message\": \"\\\"email\\\" must be a valid email\",\n    \"data\": \"email\"\n}"
+				}
+			]
+		},
+		{
+			"name": "POST auth login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"jhontri@mail.com\",\r\n    \"pin\": \"112233\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:{{port}}/auth/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "{{port}}",
+					"path": [
+						"auth",
+						"login"
+					]
+				},
+				"description": "This endpoint is for user to login and gain jwt token by provide their email and pin."
+			},
+			"response": [
+				{
+					"name": "200 status",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"pin\": \"112233\",\r\n    \"email\": \"peter@mail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "257"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"101-qAXtH9IC7eR9/1atjxYXRJE2Kgs\""
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 27 Aug 2024 12:18:46 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": true,\n    \"message\": \"success\",\n    \"data\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjgyNmI2NWUyLTZkM2MtNDgzMy05MTdlLWMwNzdlMDQyZjczMCIsInVzZXJuYW1lIjoicGV0ZXIiLCJpYXQiOjE3MjQ3NjExMjYsImV4cCI6MTcyNDc2MjkyNn0.xAHIuSEjapGK_95aZcXl_DiJhR6xZ8IUpkarfGTM2hE\"\n}"
+				},
+				{
+					"name": "400 status",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"pin\": \"112233\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "65"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"41-brIjbKEj9JxBQUbcSchf1ZLJvU8\""
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 27 Aug 2024 12:27:31 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": false,\n    \"message\": \"\\\"email\\\" is required\",\n    \"data\": \"email\"\n}"
+				}
+			]
+		},
+		{
+			"name": "POST authenticate user",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjgyNmI2NWUyLTZkM2MtNDgzMy05MTdlLWMwNzdlMDQyZjczMCIsInVzZXJuYW1lIjoicGV0ZXIiLCJpYXQiOjE3MjQ1OTA5MDUsImV4cCI6MTcyNDU5MjcwNX0.yuv7dX23bZObjY_P8Q9iZT7oF1PDpL1_OU3wsYjuMsE",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:{{port}}/auth/authenticate",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "{{port}}",
+					"path": [
+						"auth",
+						"authenticate"
+					]
+				},
+				"description": "This endpoint to authenticate the jwt token on headers."
+			},
+			"response": [
+				{
+					"name": "POST authenticate user",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/auth/authenticate",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"auth",
+								"authenticate"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "134"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"86-X+auiB+L1PWUpm2Z4jYUJx5iiXE\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 25 Aug 2024 13:15:36 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": true,\n    \"message\": \"success\",\n    \"data\": [\n        {\n            \"id\": \"826b65e2-6d3c-4833-917e-c077e042f730\",\n            \"email\": \"peter@mail.com\",\n            \"username\": \"peter\"\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "GET all todos",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEyYzc2YzY3LWYyYjMtNDkyZS04ZWZkLTFmZjIwYmZkN2Q1ZSIsInVzZXJuYW1lIjoiamhvbnRyaSIsImlhdCI6MTcyNDc3Mzg1NiwiZXhwIjoxNzI0Nzc1NjU2fQ.Yv2zvPgFBKXY2MHy7wgPVGE_Oixqf4zMtOLqoxQQ_d8",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjgyNmI2NWUyLTZkM2MtNDgzMy05MTdlLWMwNzdlMDQyZjczMCIsInVzZXJuYW1lIjoicGV0ZXIiLCJpYXQiOjE3MjQ1NzQyMjgsImV4cCI6MTcyNDU3NjAyOH0.oU-5GwGQH_EXIJCR7vMKhjciILAogYxCVU9hIFDAYXQ",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "http://localhost:{{port}}/todos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "{{port}}",
+					"path": [
+						"todos"
+					]
+				},
+				"description": "This endpoint to get all available todos for it's user."
+			},
+			"response": [
+				{
+					"name": "200 status",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjgyNmI2NWUyLTZkM2MtNDgzMy05MTdlLWMwNzdlMDQyZjczMCIsInVzZXJuYW1lIjoicGV0ZXIiLCJpYXQiOjE3MjQ3NjIwNTIsImV4cCI6MTcyNDc2Mzg1Mn0.Q_iXVOdUolcX6KSmPXIiFDCsB6vabR6VYWhLZuxiasg",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8000/todos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"todos"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "232"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"e8-C6ZvTHR+aO6ftUNMqlAZELCm28E\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 25 Aug 2024 07:53:32 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": true,\n    \"message\": \"success\",\n    \"data\": [\n        {\n            \"id\": \"1572b6ce-f7a7-4252-adac-d3d9788e646b\",\n            \"title\": \"Doto\",\n            \"description\": \"doto all night\"\n        },\n        {\n            \"id\": \"f18aa2a0-a677-4613-aed2-1467fa583878\",\n            \"title\": \"HSR guys\",\n            \"description\": \"otw Feixiao!!!\"\n        }\n    ]\n}"
+				},
+				{
+					"name": "403 status",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjgyNmI2NWUyLTZkM2MtNDgzMy05MTdlLWMwNzdlMDQyZjczMCIsInVzZXJuYW1lIjoicGV0ZXIiLCJpYXQiOjE3MjQ1NzQyMjgsImV4cCI6MTcyNDU3NjAyOH0.oU-5GwGQH_EXIJCR7vMKhjciILAogYxCVU9hIFDAYXQ",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "http://localhost:{{port}}/todos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "{{port}}",
+							"path": [
+								"todos"
+							]
+						}
+					},
+					"status": "Forbidden",
+					"code": 403,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "71"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"47-JTS+kw4iaqtlljdBlYwBdYbyoL4\""
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 27 Aug 2024 15:53:48 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": false,\n    \"message\": \"Authorization header not found\",\n    \"data\": null\n}"
+				}
+			]
+		},
+		{
+			"name": "GET todo by id",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEyYzc2YzY3LWYyYjMtNDkyZS04ZWZkLTFmZjIwYmZkN2Q1ZSIsInVzZXJuYW1lIjoiamhvbnRyaSIsImlhdCI6MTcyNDc3Mzg1NiwiZXhwIjoxNzI0Nzc1NjU2fQ.Yv2zvPgFBKXY2MHy7wgPVGE_Oixqf4zMtOLqoxQQ_d8",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjgyNmI2NWUyLTZkM2MtNDgzMy05MTdlLWMwNzdlMDQyZjczMCIsInVzZXJuYW1lIjoicGV0ZXIiLCJpYXQiOjE3MjQ1NzIzNzcsImV4cCI6MTcyNDU3NDE3N30.vWW8OlZUBRPEyoTv_opUUffCP8UYIhG4pZdMxAHcrb4",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:{{port}}/todos/9267da85-b536-4ce0-9241-71a447173019",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "{{port}}",
+					"path": [
+						"todos",
+						"9267da85-b536-4ce0-9241-71a447173019"
+					]
+				},
+				"description": "Get specific todo by it's id for user."
+			},
+			"response": [
+				{
+					"name": "200 status",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjgyNmI2NWUyLTZkM2MtNDgzMy05MTdlLWMwNzdlMDQyZjczMCIsInVzZXJuYW1lIjoicGV0ZXIiLCJpYXQiOjE3MjQ1NzIzNzcsImV4cCI6MTcyNDU3NDE3N30.vWW8OlZUBRPEyoTv_opUUffCP8UYIhG4pZdMxAHcrb4",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8000/todos/1572b6ce-f7a7-4252-adac-d3d9788e646b",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"todos",
+								"1572b6ce-f7a7-4252-adac-d3d9788e646b"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "278"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"116-C7sZcS07i6jzgThTqm8o1SDJhBM\""
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 27 Aug 2024 12:35:12 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": true,\n    \"message\": \"success\",\n    \"data\": {\n        \"id\": \"1572b6ce-f7a7-4252-adac-d3d9788e646b\",\n        \"user_id\": \"826b65e2-6d3c-4833-917e-c077e042f730\",\n        \"title\": \"Prefarm HSR\",\n        \"description\": \"For Feixiao my goodness\",\n        \"is_completed\": true,\n        \"is_deleted\": false,\n        \"created_at\": \"2024-08-24T10:09:55.214Z\"\n    }\n}"
+				},
+				{
+					"name": "404 status",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjgyNmI2NWUyLTZkM2MtNDgzMy05MTdlLWMwNzdlMDQyZjczMCIsInVzZXJuYW1lIjoicGV0ZXIiLCJpYXQiOjE3MjQ1NzIzNzcsImV4cCI6MTcyNDU3NDE3N30.vWW8OlZUBRPEyoTv_opUUffCP8UYIhG4pZdMxAHcrb4",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:{{port}}/todos/1572b6ce-f7a7-4252-adac-d3d9788e646c",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "{{port}}",
+							"path": [
+								"todos",
+								"1572b6ce-f7a7-4252-adac-d3d9788e646c"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "55"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"37-G4XVJrqowiesQA7h0w/2ePpxI5o\""
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 27 Aug 2024 12:50:03 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": false,\n    \"message\": \"Todo not found\",\n    \"data\": null\n}"
+				},
+				{
+					"name": "403 status",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjgyNmI2NWUyLTZkM2MtNDgzMy05MTdlLWMwNzdlMDQyZjczMCIsInVzZXJuYW1lIjoicGV0ZXIiLCJpYXQiOjE3MjQ1NzIzNzcsImV4cCI6MTcyNDU3NDE3N30.vWW8OlZUBRPEyoTv_opUUffCP8UYIhG4pZdMxAHcrb4",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:{{port}}/todos/1572b6ce-f7a7-4252-adac-d3d9788e646b",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "{{port}}",
+							"path": [
+								"todos",
+								"1572b6ce-f7a7-4252-adac-d3d9788e646b"
+							]
+						}
+					},
+					"status": "Forbidden",
+					"code": 403,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "72"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"48-Xf7bQKJjrexEZ25EUf+9SZ7vz9M\""
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 27 Aug 2024 12:52:26 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": false,\n    \"message\": \"You cannot access this resource\",\n    \"data\": null\n}"
+				}
+			]
+		},
+		{
+			"name": "POST create todo",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEyYzc2YzY3LWYyYjMtNDkyZS04ZWZkLTFmZjIwYmZkN2Q1ZSIsInVzZXJuYW1lIjoiamhvbnRyaSIsImlhdCI6MTcyNDc3Mzg1NiwiZXhwIjoxNzI0Nzc1NjU2fQ.Yv2zvPgFBKXY2MHy7wgPVGE_Oixqf4zMtOLqoxQQ_d8",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjgyNmI2NWUyLTZkM2MtNDgzMy05MTdlLWMwNzdlMDQyZjczMCIsInVzZXJuYW1lIjoicGV0ZXIiLCJpYXQiOjE3MjQ1NzIzNzcsImV4cCI6MTcyNDU3NDE3N30.vWW8OlZUBRPEyoTv_opUUffCP8UYIhG4pZdMxAHcrb4",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"Coding\",\r\n    \"description\": \"Learn NestJS\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:{{port}}/todos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "{{port}}",
+					"path": [
+						"todos"
+					]
+				},
+				"description": "Create new todo by provide title and description."
+			},
+			"response": [
+				{
+					"name": "201 status",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjgyNmI2NWUyLTZkM2MtNDgzMy05MTdlLWMwNzdlMDQyZjczMCIsInVzZXJuYW1lIjoicGV0ZXIiLCJpYXQiOjE3MjQ1NzIzNzcsImV4cCI6MTcyNDU3NDE3N30.vWW8OlZUBRPEyoTv_opUUffCP8UYIhG4pZdMxAHcrb4",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Eat\",\r\n    \"description\": \"Cook a delicious meal for breakfeast\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/todos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"todos"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "291"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"123-eMyppyYwjTT2RHP5G2ToCi0DgZo\""
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 27 Aug 2024 15:52:56 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": true,\n    \"message\": \"todo created\",\n    \"data\": [\n        {\n            \"id\": \"33a81955-59a9-461d-83b2-ae93dd5afc2b\",\n            \"user_id\": \"12c76c67-f2b3-492e-8efd-1ff20bfd7d5e\",\n            \"title\": \"Eat\",\n            \"description\": \"Cook a delicious meal for breakfeast\",\n            \"is_completed\": false,\n            \"is_deleted\": false,\n            \"created_at\": \"2024-08-27T15:52:56.017Z\"\n        }\n    ]\n}"
+				},
+				{
+					"name": "400 status token",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjgyNmI2NWUyLTZkM2MtNDgzMy05MTdlLWMwNzdlMDQyZjczMCIsInVzZXJuYW1lIjoicGV0ZXIiLCJpYXQiOjE3MjQ1NzIzNzcsImV4cCI6MTcyNDU3NDE3N30.vWW8OlZUBRPEyoTv_opUUffCP8UYIhG4pZdMxAHcrb4",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Eat\",\r\n    \"description\": \"Cook a delicious meal for breakfeast\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:{{port}}/todos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "{{port}}",
+							"path": [
+								"todos"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "54"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"36-kdQTszFh2ta+tflPpoPuyHw4Jro\""
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 27 Aug 2024 15:54:16 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": false,\n    \"message\": \"invalid token\",\n    \"data\": null\n}"
+				},
+				{
+					"name": "400 status",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjgyNmI2NWUyLTZkM2MtNDgzMy05MTdlLWMwNzdlMDQyZjczMCIsInVzZXJuYW1lIjoicGV0ZXIiLCJpYXQiOjE3MjQ1NzIzNzcsImV4cCI6MTcyNDU3NDE3N30.vWW8OlZUBRPEyoTv_opUUffCP8UYIhG4pZdMxAHcrb4",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Eat\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:{{port}}/todos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "{{port}}",
+							"path": [
+								"todos"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "77"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"4d-ruSNvz1+d4viQH6n5uuuSC5cKJs\""
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 27 Aug 2024 15:54:39 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": false,\n    \"message\": \"\\\"description\\\" is required\",\n    \"data\": \"description\"\n}"
+				}
+			]
+		},
+		{
+			"name": "PUT update todo",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEyYzc2YzY3LWYyYjMtNDkyZS04ZWZkLTFmZjIwYmZkN2Q1ZSIsInVzZXJuYW1lIjoiamhvbnRyaSIsImlhdCI6MTcyNDc3Mzg1NiwiZXhwIjoxNzI0Nzc1NjU2fQ.Yv2zvPgFBKXY2MHy7wgPVGE_Oixqf4zMtOLqoxQQ_d8",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"Learn to code\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:{{port}}/todos/9267da85-b536-4ce0-9241-71a447173019",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "{{port}}",
+					"path": [
+						"todos",
+						"9267da85-b536-4ce0-9241-71a447173019"
+					]
+				},
+				"description": "Update todo by it's id, can update just title or description or even both."
+			},
+			"response": [
+				{
+					"name": "400 status",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"size\": 100\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/todos/9267da85-b536-4ce0-9241-71a447173019",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"todos",
+								"9267da85-b536-4ce0-9241-71a447173019"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "66"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"42-ArLh2WVZ/0F6p6UzOCqx2djF0Fg\""
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 27 Aug 2024 15:55:49 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": false,\n    \"message\": \"\\\"size\\\" is not allowed\",\n    \"data\": \"size\"\n}"
+				},
+				{
+					"name": "200 status",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Learn to code\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/todos/9267da85-b536-4ce0-9241-71a447173019",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"todos",
+								"9267da85-b536-4ce0-9241-71a447173019"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "277"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"115-/H6nH2muEJpbLa/Srg3s18LIL/s\""
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 27 Aug 2024 15:56:25 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": true,\n    \"message\": \"update success\",\n    \"data\": {\n        \"id\": \"9267da85-b536-4ce0-9241-71a447173019\",\n        \"user_id\": \"12c76c67-f2b3-492e-8efd-1ff20bfd7d5e\",\n        \"title\": \"Learn to code\",\n        \"description\": \"Learn NestJS\",\n        \"is_completed\": false,\n        \"is_deleted\": false,\n        \"created_at\": \"2024-08-27T15:55:18.391Z\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "PATCH update todo status",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEyYzc2YzY3LWYyYjMtNDkyZS04ZWZkLTFmZjIwYmZkN2Q1ZSIsInVzZXJuYW1lIjoiamhvbnRyaSIsImlhdCI6MTcyNDc3Mzg1NiwiZXhwIjoxNzI0Nzc1NjU2fQ.Yv2zvPgFBKXY2MHy7wgPVGE_Oixqf4zMtOLqoxQQ_d8",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjgyNmI2NWUyLTZkM2MtNDgzMy05MTdlLWMwNzdlMDQyZjczMCIsInVzZXJuYW1lIjoicGV0ZXIiLCJpYXQiOjE3MjQ1NzIzNzcsImV4cCI6MTcyNDU3NDE3N30.vWW8OlZUBRPEyoTv_opUUffCP8UYIhG4pZdMxAHcrb4",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:{{port}}/todos/9267da85-b536-4ce0-9241-71a447173019/update",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "{{port}}",
+					"path": [
+						"todos",
+						"9267da85-b536-4ce0-9241-71a447173019",
+						"update"
+					]
+				},
+				"description": "This endpoint is to switch todo is_completed status."
+			},
+			"response": [
+				{
+					"name": "200 status",
+					"originalRequest": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjgyNmI2NWUyLTZkM2MtNDgzMy05MTdlLWMwNzdlMDQyZjczMCIsInVzZXJuYW1lIjoicGV0ZXIiLCJpYXQiOjE3MjQ1NzIzNzcsImV4cCI6MTcyNDU3NDE3N30.vWW8OlZUBRPEyoTv_opUUffCP8UYIhG4pZdMxAHcrb4",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/todos/9267da85-b536-4ce0-9241-71a447173019/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"todos",
+								"9267da85-b536-4ce0-9241-71a447173019",
+								"update"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "285"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"11d-nNqzwjoEmg2HKH44JQss3WchLcY\""
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 27 Aug 2024 15:57:09 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": true,\n    \"message\": \"status complete updated\",\n    \"data\": {\n        \"id\": \"9267da85-b536-4ce0-9241-71a447173019\",\n        \"user_id\": \"12c76c67-f2b3-492e-8efd-1ff20bfd7d5e\",\n        \"title\": \"Learn to code\",\n        \"description\": \"Learn NestJS\",\n        \"is_completed\": true,\n        \"is_deleted\": false,\n        \"created_at\": \"2024-08-27T15:55:18.391Z\"\n    }\n}"
+				},
+				{
+					"name": "404 status",
+					"originalRequest": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjgyNmI2NWUyLTZkM2MtNDgzMy05MTdlLWMwNzdlMDQyZjczMCIsInVzZXJuYW1lIjoicGV0ZXIiLCJpYXQiOjE3MjQ1NzIzNzcsImV4cCI6MTcyNDU3NDE3N30.vWW8OlZUBRPEyoTv_opUUffCP8UYIhG4pZdMxAHcrb4",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:{{port}}/todos/9267da85-b536-4ce0-9241-71a447173018/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "{{port}}",
+							"path": [
+								"todos",
+								"9267da85-b536-4ce0-9241-71a447173018",
+								"update"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "55"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"37-G4XVJrqowiesQA7h0w/2ePpxI5o\""
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 27 Aug 2024 15:57:34 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": false,\n    \"message\": \"Todo not found\",\n    \"data\": null\n}"
+				}
+			]
+		},
+		{
+			"name": "PATCH soft delete todo",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEyYzc2YzY3LWYyYjMtNDkyZS04ZWZkLTFmZjIwYmZkN2Q1ZSIsInVzZXJuYW1lIjoiamhvbnRyaSIsImlhdCI6MTcyNDc3Mzg1NiwiZXhwIjoxNzI0Nzc1NjU2fQ.Yv2zvPgFBKXY2MHy7wgPVGE_Oixqf4zMtOLqoxQQ_d8",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjgyNmI2NWUyLTZkM2MtNDgzMy05MTdlLWMwNzdlMDQyZjczMCIsInVzZXJuYW1lIjoicGV0ZXIiLCJpYXQiOjE3MjQ1NzIzNzcsImV4cCI6MTcyNDU3NDE3N30.vWW8OlZUBRPEyoTv_opUUffCP8UYIhG4pZdMxAHcrb4",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:{{port}}/todos/9267da85-b536-4ce0-9241-71a447173019/delete",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "{{port}}",
+					"path": [
+						"todos",
+						"9267da85-b536-4ce0-9241-71a447173019",
+						"delete"
+					]
+				},
+				"description": "This endpoint to switch is_deleted status for soft delete. Can be used to retrieve back some specific todo."
+			},
+			"response": [
+				{
+					"name": "200 status",
+					"originalRequest": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjgyNmI2NWUyLTZkM2MtNDgzMy05MTdlLWMwNzdlMDQyZjczMCIsInVzZXJuYW1lIjoicGV0ZXIiLCJpYXQiOjE3MjQ1NzIzNzcsImV4cCI6MTcyNDU3NDE3N30.vWW8OlZUBRPEyoTv_opUUffCP8UYIhG4pZdMxAHcrb4",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8000/todos/9267da85-b536-4ce0-9241-71a447173019/delete",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"todos",
+								"9267da85-b536-4ce0-9241-71a447173019",
+								"delete"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "282"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"11a-muO4qcNHhvAwisi6DdkJOICRYSc\""
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 27 Aug 2024 16:08:41 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": true,\n    \"message\": \"status delete updated\",\n    \"data\": {\n        \"id\": \"9267da85-b536-4ce0-9241-71a447173019\",\n        \"user_id\": \"12c76c67-f2b3-492e-8efd-1ff20bfd7d5e\",\n        \"title\": \"Learn to code\",\n        \"description\": \"Learn NestJS\",\n        \"is_completed\": true,\n        \"is_deleted\": true,\n        \"created_at\": \"2024-08-27T15:55:18.391Z\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "DELETE hard delete todo",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEyYzc2YzY3LWYyYjMtNDkyZS04ZWZkLTFmZjIwYmZkN2Q1ZSIsInVzZXJuYW1lIjoiamhvbnRyaSIsImlhdCI6MTcyNDc3Mzg1NiwiZXhwIjoxNzI0Nzc1NjU2fQ.Yv2zvPgFBKXY2MHy7wgPVGE_Oixqf4zMtOLqoxQQ_d8",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjgyNmI2NWUyLTZkM2MtNDgzMy05MTdlLWMwNzdlMDQyZjczMCIsInVzZXJuYW1lIjoicGV0ZXIiLCJpYXQiOjE3MjQ1NzIzNzcsImV4cCI6MTcyNDU3NDE3N30.vWW8OlZUBRPEyoTv_opUUffCP8UYIhG4pZdMxAHcrb4",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:{{port}}/todos/9267da85-b536-4ce0-9241-71a447173019",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "{{port}}",
+					"path": [
+						"todos",
+						"9267da85-b536-4ce0-9241-71a447173019"
+					]
+				},
+				"description": "This endpoint completely delete todo from database."
+			},
+			"response": [
+				{
+					"name": "200 status",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjgyNmI2NWUyLTZkM2MtNDgzMy05MTdlLWMwNzdlMDQyZjczMCIsInVzZXJuYW1lIjoicGV0ZXIiLCJpYXQiOjE3MjQ1NzIzNzcsImV4cCI6MTcyNDU3NDE3N30.vWW8OlZUBRPEyoTv_opUUffCP8UYIhG4pZdMxAHcrb4",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8000/todos/9267da85-b536-4ce0-9241-71a447173019",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"todos",
+								"9267da85-b536-4ce0-9241-71a447173019"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "52"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"34-x5RUIaZTBbZR9RJ7/4YZGHJYGWc\""
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 27 Aug 2024 16:10:00 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": true,\n    \"message\": \"todo deleted\",\n    \"data\": null\n}"
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "inherit"
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "port",
+			"value": "8000",
+			"type": "string"
+		}
+	]
+}

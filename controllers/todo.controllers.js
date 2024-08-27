@@ -1,3 +1,4 @@
+const { NotFoundError, UnauthorizedError } = require("../helpers/errors");
 const {
   get,
   getById,
@@ -12,76 +13,52 @@ const getTodoById = async (id, user_id) => {
   const todo = await getById(id);
 
   if (todo.rows.length === 0) {
-    throw new Error("Todo not found");
+    throw new NotFoundError("Todo not found");
   }
 
   const user_id_from_todo = todo.rows[0].user_id;
   if (user_id_from_todo !== user_id) {
-    throw new Error("You cannot access this resource");
+    throw new UnauthorizedError("You cannot access this resource");
   }
 
   return todo;
 };
 
 module.exports = {
-  get: async (req, res) => {
+  get: async (req, res, next) => {
     try {
       const user_id = req.user.id;
       const results = await get(user_id);
 
-      res.status(200).json({
-        status: true,
-        message: "success",
-        data: results.rows,
-      });
+      res.success(200, "success", results.rows);
     } catch (error) {
-      res.status(500).json({
-        status: false,
-        message: "fail",
-        data: [],
-      });
+      next(error);
     }
   },
-  getByid: async (req, res) => {
+  getByid: async (req, res, next) => {
     try {
       const id = req.params.todo_id;
       const user_id = req.user.id;
       const todo = await getTodoById(id, user_id);
 
-      res.status(200).json({
-        status: true,
-        message: "success",
-        data: todo.rows[0],
-      });
+      res.success(200, "success", todo.rows[0]);
     } catch (error) {
-      res.status(500).json({
-        status: false,
-        message: error.message,
-        data: [],
-      });
+      next(error);
     }
   },
-  post: async (req, res) => {
+  post: async (req, res, next) => {
     try {
       const { title, description } = req.body;
       const user_id = req.user.id;
 
       const todo = await post(title, description, user_id);
 
-      res.status(201).json({
-        status: true,
-        message: "todo created",
-        data: todo.rows,
-      });
+      res.success(201, "todo created", todo.rows);
     } catch (error) {
-      res.status(500).json({
-        status: false,
-        message: "fail",
-        data: [],
-      });
+      next(error);
     }
   },
-  update: async (req, res) => {
+  update: async (req, res, next) => {
     try {
       const id = req.params.todo_id;
       const user_id = req.user.id;
@@ -94,20 +71,12 @@ module.exports = {
 
       const result = await update(title, description, todo_id);
 
-      res.status(200).json({
-        status: true,
-        message: "update success",
-        data: result.rows[0],
-      });
+      res.success(200, "update success", result.rows[0]);
     } catch (error) {
-      res.status(500).json({
-        status: false,
-        message: error.message,
-        data: [],
-      });
+      next(error);
     }
   },
-  updateStatus: async (req, res) => {
+  updateStatus: async (req, res, next) => {
     try {
       const id = req.params.todo_id;
       const user_id = req.user.id;
@@ -116,20 +85,12 @@ module.exports = {
 
       const result = await updateStatus(todo.rows[0].id);
 
-      res.status(200).json({
-        status: true,
-        message: "status complete updated",
-        data: result.rows[0],
-      });
+      res.success(200, "status complete updated", result.rows[0]);
     } catch (error) {
-      res.status(500).json({
-        status: false,
-        message: error.message,
-        data: [],
-      });
+      next(error);
     }
   },
-  softDelete: async (req, res) => {
+  softDelete: async (req, res, next) => {
     try {
       const id = req.params.todo_id;
       const user_id = req.user.id;
@@ -137,20 +98,12 @@ module.exports = {
 
       const result = await softDelete(todo.rows[0].id);
 
-      res.status(200).json({
-        status: true,
-        message: "status delete updated",
-        data: result.rows[0],
-      });
+      res.success(200, "status delete updated", result.rows[0]);
     } catch (error) {
-      res.status(500).json({
-        status: false,
-        message: error.message,
-        data: [],
-      });
+      next(error);
     }
   },
-  hardDelete: async (req, res) => {
+  hardDelete: async (req, res, next) => {
     try {
       const id = req.params.todo_id;
       const user_id = req.user.id;
@@ -158,16 +111,9 @@ module.exports = {
 
       await hardDelete(todo.rows[0].id);
 
-      res.status(200).json({
-        status: true,
-        message: "todo deleted",
-      });
+      res.success(200, "todo deleted", null);
     } catch (error) {
-      res.status(500).json({
-        status: false,
-        message: error.message,
-        data: [],
-      });
+      next(error);
     }
   },
 };

@@ -8,7 +8,7 @@ const jwt = require("jsonwebtoken");
 require("dotenv").config();
 
 module.exports = {
-  register: async (req, res) => {
+  register: async (req, res, next) => {
     try {
       const { email, username, pin } = req.body;
 
@@ -27,20 +27,12 @@ module.exports = {
 
       const user = await register(email, username, hashedPin);
 
-      res.status(200).json({
-        status: true,
-        message: "user created",
-        data: user.rows[0],
-      });
+      res.success(201, "user created", user.rows[0]);
     } catch (error) {
-      res.status(500).json({
-        status: false,
-        message: error.message,
-        data: null,
-      });
+      next(error);
     }
   },
-  login: async (req, res) => {
+  login: async (req, res, next) => {
     try {
       const { email, pin } = req.body;
       // Check if user exist
@@ -68,20 +60,12 @@ module.exports = {
         expiresIn: "30min",
       });
 
-      res.status(200).json({
-        status: true,
-        message: "success",
-        data: token,
-      });
+      res.success(200, "login success", token);
     } catch (error) {
-      res.status(500).json({
-        status: false,
-        message: error.message,
-        data: null,
-      });
+      next(error);
     }
   },
-  authenticate: async (req, res) => {
+  authenticate: async (req, res, next) => {
     try {
       const user_id = req.user.id;
 
@@ -92,12 +76,10 @@ module.exports = {
         message: "success",
         data: user.rows,
       });
+
+      res.success(200, "authenticate success", user.rows);
     } catch (error) {
-      res.status(500).json({
-        status: false,
-        message: error.message,
-        data: null,
-      });
+      next(error);
     }
   },
 };
