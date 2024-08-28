@@ -10,6 +10,21 @@ Node.JS, Express, PostgreSQL, Postman, JWT, and Joi
 
 For accessing database I use simple raw query to enhance my SQL skill.
 
+## Algorithm Mock Test
+
+Check algorithm-mock-test directory to check my solving code for this [Algorithm Mock Test](https://www.hackerrank.com/test/143hd7jsid6/questions)
+![Algorithm Mock Test Screenshot](./screenshots/algorithm-mock-test.png)
+
+## Pertanyaan Mock Test
+
+_1. Apakah Kegunaan JSON pada REST API?_
+
+> JSON (JavaScript Object Notation) pada REST API berguna sebagai format pertukaran data antara browser atau client yang memiliki keunggulan ringan dan mudah dibaca dibandingkan format lain.
+
+_2. Jelaskan bagaimana REST API bekerja_
+
+> REST API bekerja berdasarkan komunikasi HTTP dan request dibedakan berdasarkan HTTP methods (GET, POST, PUT, DELETE, dll) yang dikirimkan oleh sisi client yang nantinya akan diproses di sisi server untuk memberikan response berdasarkan request yang diminta. Response yang dikirim biasanya dalam format JSON.
+
 ## Showcase
 
 Base URL for this project :
