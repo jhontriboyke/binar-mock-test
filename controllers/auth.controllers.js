@@ -5,6 +5,7 @@ const {
 } = require("../models/auth.models");
 const bcyrpt = require("bcrypt");
 const jwt = require("jsonwebtoken");
+const { NotFoundError, DuplicationError } = require("../helpers/errors");
 require("dotenv").config();
 
 module.exports = {
@@ -16,10 +17,7 @@ module.exports = {
       const isEmailExist = await getUserByEmail(email);
 
       if (isEmailExist) {
-        return res.status(400).json({
-          status: false,
-          message: "Email already used",
-        });
+        throw new DuplicationError("Email already used");
       }
 
       const salt = 10;
@@ -39,14 +37,14 @@ module.exports = {
       const isUserExist = await getUserByEmail(email);
 
       if (!isUserExist) {
-        throw new Error("Email incorrect");
+        throw new NotFoundError("Your email or password incorrect");
       }
 
       // verify hashed
       const isPinMatch = await bcyrpt.compare(pin, isUserExist.pin);
 
       if (!isPinMatch) {
-        throw new Error("Password incorrect");
+        throw new NotFoundError("Your email or password incorrect");
       }
 
       const payload = {

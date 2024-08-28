@@ -1,8 +1,10 @@
 const express = require("express");
 const app = express();
+const morgan = require("morgan");
 require("dotenv").config();
 const responseFormat = require("./middlewares/response-format.middleware");
 
+app.use(morgan("dev"));
 app.use(responseFormat);
 app.use(express.json());
 

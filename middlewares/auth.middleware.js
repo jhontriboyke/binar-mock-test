@@ -13,7 +13,7 @@ const authenticateToken = (req, res, next) => {
     const token = header.split(" ")[1];
 
     if (!token) {
-      throw new Error("Token not found");
+      throw new UnauthorizedError("Token not found");
     }
 
     try {
