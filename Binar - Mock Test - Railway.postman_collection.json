@@ -1,0 +1,1399 @@
+{
+	"info": {
+		"_postman_id": "1554332b-0a11-4b46-9b8a-97f6d0e0ea49",
+		"name": "Binar - Mock Test - Railway",
+		"description": "Binar Backend JavaScript Bootcamp - FSW Mock Test (Backend)\n\nBase URL:\n\n[https://binar-mock-test-jhontriboyke-production.up.railway.app/](https://binar-mock-test-jhontriboyke-production.up.railway.app/)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "33540829"
+	},
+	"item": [
+		{
+			"name": "POST auth register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"boyke@mail.com\",\r\n    \"username\": \"boyke\",\r\n    \"pin\": \"112233\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/auth/register",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"auth",
+						"register"
+					]
+				},
+				"description": "This endpoint is for creating new user by provide valid email, username, and pin (6 length)."
+			},
+			"response": [
+				{
+					"name": "201 status",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"boyke@mail.com\",\r\n    \"username\": \"boyke\",\r\n    \"pin\": \"112233\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/auth/register",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"auth",
+								"register"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Length",
+							"value": "246"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 28 Aug 2024 07:53:52 GMT"
+						},
+						{
+							"key": "Etag",
+							"value": "W/\"f6-vjxZ/PpObN74jqFbxvuZVWfHlUM\""
+						},
+						{
+							"key": "Server",
+							"value": "railway-edge"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "X-Request-Id",
+							"value": "l9lTeX3wScWGDbzZjC372A_1370606736"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": true,\n    \"message\": \"user created\",\n    \"data\": {\n        \"id\": \"a216189d-d6b7-4df1-865e-42b05cdd6e0a\",\n        \"email\": \"boyke@mail.com\",\n        \"username\": \"boyke\",\n        \"pin\": \"$2b$10$vbzbqXfPwqRZPt2h0hQ3pebx4z050j.4H28Pl2uEGQlmkyZ21hocS\",\n        \"created_at\": \"2024-08-28T07:53:52.472Z\"\n    }\n}"
+				},
+				{
+					"name": "400 status",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"boyke@mail.com\",\r\n    \"username\": \"boyke\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/auth/register",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"auth",
+								"register"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Length",
+							"value": "61"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 28 Aug 2024 07:54:09 GMT"
+						},
+						{
+							"key": "Etag",
+							"value": "W/\"3d-MTqSWlTOaGdFINQH7A+RK5X4utg\""
+						},
+						{
+							"key": "Server",
+							"value": "railway-edge"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "X-Request-Id",
+							"value": "kXemgNdWQHmlwWAZbfTINw_1370606736"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": false,\n    \"message\": \"\\\"pin\\\" is required\",\n    \"data\": \"pin\"\n}"
+				},
+				{
+					"name": "409 status",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"jhontri@mail.com\",\r\n    \"username\": \"jhontri\",\r\n    \"pin\": \"112233\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/auth/register",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"auth",
+								"register"
+							]
+						}
+					},
+					"status": "Conflict",
+					"code": 409,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Length",
+							"value": "59"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 28 Aug 2024 08:29:43 GMT"
+						},
+						{
+							"key": "Etag",
+							"value": "W/\"3b-QJSjKc+OGWVXsnpYWEOGLbWrbsQ\""
+						},
+						{
+							"key": "Server",
+							"value": "railway-edge"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "X-Request-Id",
+							"value": "nIWjRECIRECAYFjO8d84Uw_2430273041"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": false,\n    \"message\": \"Email already used\",\n    \"data\": null\n}"
+				}
+			]
+		},
+		{
+			"name": "POST auth login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"jhontri@mail.com\",\r\n    \"pin\": \"112233\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/auth/login",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"auth",
+						"login"
+					]
+				},
+				"description": "This endpoint is for user to login and gain jwt token by provide their email and pin."
+			},
+			"response": [
+				{
+					"name": "200 status",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"jhontri@mail.com\",\r\n    \"pin\": \"112233\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/auth/login",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Length",
+							"value": "266"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 28 Aug 2024 07:35:00 GMT"
+						},
+						{
+							"key": "Etag",
+							"value": "W/\"10a-4S+ZVO0UD0QjVUkU+ZDI8K1AWyo\""
+						},
+						{
+							"key": "Server",
+							"value": "railway-edge"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "X-Request-Id",
+							"value": "i5O3y-h4TjS1idbTDEjsSQ_1721921752"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": true,\n    \"message\": \"login success\",\n    \"data\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjU0MTlhZDQwLWU0N2UtNDhiZi05Y2Q0LWU2NWNjYzcwM2M5YSIsInVzZXJuYW1lIjoiamhvbnRyaSIsImlhdCI6MTcyNDgzMDUwMCwiZXhwIjoxNzI0ODMyMzAwfQ.DIIKj42IECvGG0X2H9B0PbCRpF7fA__nanV3wsedIzU\"\n}"
+				},
+				{
+					"name": "404 status",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"jhontri1@mail.com\",\r\n    \"pin\": \"112233\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/auth/login",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Length",
+							"value": "73"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 28 Aug 2024 08:30:05 GMT"
+						},
+						{
+							"key": "Etag",
+							"value": "W/\"49-KR5uTP4CIBGYctXmO+l+4mcW4Gs\""
+						},
+						{
+							"key": "Server",
+							"value": "railway-edge"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "X-Request-Id",
+							"value": "VxL7fufmTkua1rSkRo1wyA_2430273041"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": false,\n    \"message\": \"Your email or password incorrect\",\n    \"data\": null\n}"
+				}
+			]
+		},
+		{
+			"name": "POST authenticate user",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjU0MTlhZDQwLWU0N2UtNDhiZi05Y2Q0LWU2NWNjYzcwM2M5YSIsInVzZXJuYW1lIjoiamhvbnRyaSIsImlhdCI6MTcyNDgzMDUwMCwiZXhwIjoxNzI0ODMyMzAwfQ.DIIKj42IECvGG0X2H9B0PbCRpF7fA__nanV3wsedIzU",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/auth/authenticate",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"auth",
+						"authenticate"
+					]
+				},
+				"description": "This endpoint to authenticate the jwt token on headers."
+			},
+			"response": [
+				{
+					"name": "200 status",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/auth/authenticate",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"auth",
+								"authenticate"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Length",
+							"value": "138"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 28 Aug 2024 07:35:20 GMT"
+						},
+						{
+							"key": "Etag",
+							"value": "W/\"8a-zOC7sEXU639joG1XZtYaOScN/T0\""
+						},
+						{
+							"key": "Server",
+							"value": "railway-edge"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "X-Request-Id",
+							"value": "8ATEzdXJTwisLYsGL-T1NA_1721921752"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": true,\n    \"message\": \"success\",\n    \"data\": [\n        {\n            \"id\": \"5419ad40-e47e-48bf-9cd4-e65ccc703c9a\",\n            \"email\": \"jhontri@mail.com\",\n            \"username\": \"jhontri\"\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "GET all todos",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjU0MTlhZDQwLWU0N2UtNDhiZi05Y2Q0LWU2NWNjYzcwM2M5YSIsInVzZXJuYW1lIjoiamhvbnRyaSIsImlhdCI6MTcyNDgzMzgzOSwiZXhwIjoxNzI0ODM1NjM5fQ.KVIuQ5uW8oitMxTRc4UBaIgvec_cuiiyg_JGoCOdZW0",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjgyNmI2NWUyLTZkM2MtNDgzMy05MTdlLWMwNzdlMDQyZjczMCIsInVzZXJuYW1lIjoicGV0ZXIiLCJpYXQiOjE3MjQ1NzQyMjgsImV4cCI6MTcyNDU3NjAyOH0.oU-5GwGQH_EXIJCR7vMKhjciILAogYxCVU9hIFDAYXQ",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "{{url}}/todos",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"todos"
+					]
+				},
+				"description": "This endpoint to get all available todos for it's user."
+			},
+			"response": [
+				{
+					"name": "200 status",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjgyNmI2NWUyLTZkM2MtNDgzMy05MTdlLWMwNzdlMDQyZjczMCIsInVzZXJuYW1lIjoicGV0ZXIiLCJpYXQiOjE3MjQ1NzQyMjgsImV4cCI6MTcyNDU3NjAyOH0.oU-5GwGQH_EXIJCR7vMKhjciILAogYxCVU9hIFDAYXQ",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{url}}/todos",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"todos"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Length",
+							"value": "324"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 28 Aug 2024 07:54:49 GMT"
+						},
+						{
+							"key": "Etag",
+							"value": "W/\"144-t3fWkuxyyi00SgFyfio5F07fNMQ\""
+						},
+						{
+							"key": "Server",
+							"value": "railway-edge"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "X-Request-Id",
+							"value": "zdOW3ZdOQq-sBbbflAZtrQ_1370606736"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": true,\n    \"message\": \"success\",\n    \"data\": [\n        {\n            \"id\": \"71ea81e6-6872-4124-8cd7-9ee60018b227\",\n            \"title\": \"Coding\",\n            \"description\": \"Learn NestJS\",\n            \"is_completed\": false,\n            \"is_deleted\": false\n        },\n        {\n            \"id\": \"d3720281-5cc3-41b1-87e5-3157e88d4eaf\",\n            \"title\": \"Jogging\",\n            \"description\": \"Keliling stadion jam 4 sore\",\n            \"is_completed\": false,\n            \"is_deleted\": false\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "GET todo by id",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjU0MTlhZDQwLWU0N2UtNDhiZi05Y2Q0LWU2NWNjYzcwM2M5YSIsInVzZXJuYW1lIjoiamhvbnRyaSIsImlhdCI6MTcyNDgzMzgzOSwiZXhwIjoxNzI0ODM1NjM5fQ.KVIuQ5uW8oitMxTRc4UBaIgvec_cuiiyg_JGoCOdZW0",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjgyNmI2NWUyLTZkM2MtNDgzMy05MTdlLWMwNzdlMDQyZjczMCIsInVzZXJuYW1lIjoicGV0ZXIiLCJpYXQiOjE3MjQ1NzIzNzcsImV4cCI6MTcyNDU3NDE3N30.vWW8OlZUBRPEyoTv_opUUffCP8UYIhG4pZdMxAHcrb4",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{url}}/todos/d3720281-5cc3-41b1-87e5-3157e88d4eaf",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"todos",
+						"d3720281-5cc3-41b1-87e5-3157e88d4eaf"
+					]
+				},
+				"description": "Get specific todo by it's id for user."
+			},
+			"response": [
+				{
+					"name": "200 status",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjgyNmI2NWUyLTZkM2MtNDgzMy05MTdlLWMwNzdlMDQyZjczMCIsInVzZXJuYW1lIjoicGV0ZXIiLCJpYXQiOjE3MjQ1NzIzNzcsImV4cCI6MTcyNDU3NDE3N30.vWW8OlZUBRPEyoTv_opUUffCP8UYIhG4pZdMxAHcrb4",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/todos/d3720281-5cc3-41b1-87e5-3157e88d4eaf",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"todos",
+								"d3720281-5cc3-41b1-87e5-3157e88d4eaf"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Length",
+							"value": "279"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 28 Aug 2024 07:55:29 GMT"
+						},
+						{
+							"key": "Etag",
+							"value": "W/\"117-5p0g+9UM5HOMeP8myTs7gcnfDvo\""
+						},
+						{
+							"key": "Server",
+							"value": "railway-edge"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "X-Request-Id",
+							"value": "_2FX-4fdRR-3TMgf7q-WJw_1370606736"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": true,\n    \"message\": \"success\",\n    \"data\": {\n        \"id\": \"d3720281-5cc3-41b1-87e5-3157e88d4eaf\",\n        \"user_id\": \"5419ad40-e47e-48bf-9cd4-e65ccc703c9a\",\n        \"title\": \"Jogging\",\n        \"description\": \"Keliling stadion jam 4 sore\",\n        \"is_completed\": false,\n        \"is_deleted\": false,\n        \"created_at\": \"2024-08-28T07:54:44.809Z\"\n    }\n}"
+				},
+				{
+					"name": "404 status",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjgyNmI2NWUyLTZkM2MtNDgzMy05MTdlLWMwNzdlMDQyZjczMCIsInVzZXJuYW1lIjoicGV0ZXIiLCJpYXQiOjE3MjQ1NzIzNzcsImV4cCI6MTcyNDU3NDE3N30.vWW8OlZUBRPEyoTv_opUUffCP8UYIhG4pZdMxAHcrb4",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/todos/71ea81e6-6872-4124-8cd7-9ee60018b227",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"todos",
+								"71ea81e6-6872-4124-8cd7-9ee60018b227"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Length",
+							"value": "55"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 28 Aug 2024 08:31:05 GMT"
+						},
+						{
+							"key": "Etag",
+							"value": "W/\"37-G4XVJrqowiesQA7h0w/2ePpxI5o\""
+						},
+						{
+							"key": "Server",
+							"value": "railway-edge"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "X-Request-Id",
+							"value": "r93pMrbfRUeZpfyKCii4tg_2430273041"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": false,\n    \"message\": \"Todo not found\",\n    \"data\": null\n}"
+				}
+			]
+		},
+		{
+			"name": "POST create todo",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjU0MTlhZDQwLWU0N2UtNDhiZi05Y2Q0LWU2NWNjYzcwM2M5YSIsInVzZXJuYW1lIjoiamhvbnRyaSIsImlhdCI6MTcyNDgzMzgzOSwiZXhwIjoxNzI0ODM1NjM5fQ.KVIuQ5uW8oitMxTRc4UBaIgvec_cuiiyg_JGoCOdZW0",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjgyNmI2NWUyLTZkM2MtNDgzMy05MTdlLWMwNzdlMDQyZjczMCIsInVzZXJuYW1lIjoicGV0ZXIiLCJpYXQiOjE3MjQ1NzIzNzcsImV4cCI6MTcyNDU3NDE3N30.vWW8OlZUBRPEyoTv_opUUffCP8UYIhG4pZdMxAHcrb4",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"Jogging\",\r\n    \"description\": \"Keliling stadion jam 4 sore\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/todos",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"todos"
+					]
+				},
+				"description": "Create new todo by provide title and description."
+			},
+			"response": [
+				{
+					"name": "201 status",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjgyNmI2NWUyLTZkM2MtNDgzMy05MTdlLWMwNzdlMDQyZjczMCIsInVzZXJuYW1lIjoicGV0ZXIiLCJpYXQiOjE3MjQ1NzIzNzcsImV4cCI6MTcyNDU3NDE3N30.vWW8OlZUBRPEyoTv_opUUffCP8UYIhG4pZdMxAHcrb4",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Coding\",\r\n    \"description\": \"Learn NestJS\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/todos",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"todos"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Length",
+							"value": "270"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 28 Aug 2024 07:50:02 GMT"
+						},
+						{
+							"key": "Etag",
+							"value": "W/\"10e-42NbTXzmhOZrv59D9jCbqsVNaEo\""
+						},
+						{
+							"key": "Server",
+							"value": "railway-edge"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "X-Request-Id",
+							"value": "oCMoM6UKS2iCBsQeFxc6RQ_3176973899"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": true,\n    \"message\": \"todo created\",\n    \"data\": [\n        {\n            \"id\": \"71ea81e6-6872-4124-8cd7-9ee60018b227\",\n            \"user_id\": \"5419ad40-e47e-48bf-9cd4-e65ccc703c9a\",\n            \"title\": \"Coding\",\n            \"description\": \"Learn NestJS\",\n            \"is_completed\": false,\n            \"is_deleted\": false,\n            \"created_at\": \"2024-08-28T07:50:02.986Z\"\n        }\n    ]\n}"
+				},
+				{
+					"name": "400 status",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjgyNmI2NWUyLTZkM2MtNDgzMy05MTdlLWMwNzdlMDQyZjczMCIsInVzZXJuYW1lIjoicGV0ZXIiLCJpYXQiOjE3MjQ1NzIzNzcsImV4cCI6MTcyNDU3NDE3N30.vWW8OlZUBRPEyoTv_opUUffCP8UYIhG4pZdMxAHcrb4",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Jogging\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/todos",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"todos"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Length",
+							"value": "77"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 28 Aug 2024 08:32:02 GMT"
+						},
+						{
+							"key": "Etag",
+							"value": "W/\"4d-ruSNvz1+d4viQH6n5uuuSC5cKJs\""
+						},
+						{
+							"key": "Server",
+							"value": "railway-edge"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "X-Request-Id",
+							"value": "2CrxPYvkTqaivLrRX04feQ_2430273041"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": false,\n    \"message\": \"\\\"description\\\" is required\",\n    \"data\": \"description\"\n}"
+				}
+			]
+		},
+		{
+			"name": "PUT update todo",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjU0MTlhZDQwLWU0N2UtNDhiZi05Y2Q0LWU2NWNjYzcwM2M5YSIsInVzZXJuYW1lIjoiamhvbnRyaSIsImlhdCI6MTcyNDgzMDUwMCwiZXhwIjoxNzI0ODMyMzAwfQ.DIIKj42IECvGG0X2H9B0PbCRpF7fA__nanV3wsedIzU",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"Jalan sore\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/todos/d3720281-5cc3-41b1-87e5-3157e88d4eaf",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"todos",
+						"d3720281-5cc3-41b1-87e5-3157e88d4eaf"
+					]
+				},
+				"description": "Update todo by it's id, can update just title or description or even both."
+			},
+			"response": [
+				{
+					"name": "200 status",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Jalan sore\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/todos/d3720281-5cc3-41b1-87e5-3157e88d4eaf",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"todos",
+								"d3720281-5cc3-41b1-87e5-3157e88d4eaf"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Length",
+							"value": "289"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 28 Aug 2024 07:56:11 GMT"
+						},
+						{
+							"key": "Etag",
+							"value": "W/\"121-dkEOnSTI8Llg0v0CwoGqUl2z0Wk\""
+						},
+						{
+							"key": "Server",
+							"value": "railway-edge"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "X-Request-Id",
+							"value": "bNMODsyQR0SAygS4lbgqug_1370606736"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": true,\n    \"message\": \"update success\",\n    \"data\": {\n        \"id\": \"d3720281-5cc3-41b1-87e5-3157e88d4eaf\",\n        \"user_id\": \"5419ad40-e47e-48bf-9cd4-e65ccc703c9a\",\n        \"title\": \"Jalan sore\",\n        \"description\": \"Keliling stadion jam 4 sore\",\n        \"is_completed\": false,\n        \"is_deleted\": false,\n        \"created_at\": \"2024-08-28T07:54:44.809Z\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "PATCH update todo status",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjU0MTlhZDQwLWU0N2UtNDhiZi05Y2Q0LWU2NWNjYzcwM2M5YSIsInVzZXJuYW1lIjoiamhvbnRyaSIsImlhdCI6MTcyNDgzMDUwMCwiZXhwIjoxNzI0ODMyMzAwfQ.DIIKj42IECvGG0X2H9B0PbCRpF7fA__nanV3wsedIzU",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjgyNmI2NWUyLTZkM2MtNDgzMy05MTdlLWMwNzdlMDQyZjczMCIsInVzZXJuYW1lIjoicGV0ZXIiLCJpYXQiOjE3MjQ1NzIzNzcsImV4cCI6MTcyNDU3NDE3N30.vWW8OlZUBRPEyoTv_opUUffCP8UYIhG4pZdMxAHcrb4",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/todos/d3720281-5cc3-41b1-87e5-3157e88d4eaf/update",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"todos",
+						"d3720281-5cc3-41b1-87e5-3157e88d4eaf",
+						"update"
+					]
+				},
+				"description": "This endpoint is to switch todo is_completed status."
+			},
+			"response": [
+				{
+					"name": "200 status",
+					"originalRequest": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjgyNmI2NWUyLTZkM2MtNDgzMy05MTdlLWMwNzdlMDQyZjczMCIsInVzZXJuYW1lIjoicGV0ZXIiLCJpYXQiOjE3MjQ1NzIzNzcsImV4cCI6MTcyNDU3NDE3N30.vWW8OlZUBRPEyoTv_opUUffCP8UYIhG4pZdMxAHcrb4",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/todos/d3720281-5cc3-41b1-87e5-3157e88d4eaf/update",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"todos",
+								"d3720281-5cc3-41b1-87e5-3157e88d4eaf",
+								"update"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Length",
+							"value": "297"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 28 Aug 2024 08:04:15 GMT"
+						},
+						{
+							"key": "Etag",
+							"value": "W/\"129-ZsOJy+Hp2TlDoiFeOzPZaKtMLRA\""
+						},
+						{
+							"key": "Server",
+							"value": "railway-edge"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "X-Request-Id",
+							"value": "WQ9sVMW_S42WBODfis-fsg_1721921752"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": true,\n    \"message\": \"status complete updated\",\n    \"data\": {\n        \"id\": \"d3720281-5cc3-41b1-87e5-3157e88d4eaf\",\n        \"user_id\": \"5419ad40-e47e-48bf-9cd4-e65ccc703c9a\",\n        \"title\": \"Jalan sore\",\n        \"description\": \"Keliling stadion jam 4 sore\",\n        \"is_completed\": true,\n        \"is_deleted\": false,\n        \"created_at\": \"2024-08-28T07:54:44.809Z\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "PATCH soft delete todo",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjU0MTlhZDQwLWU0N2UtNDhiZi05Y2Q0LWU2NWNjYzcwM2M5YSIsInVzZXJuYW1lIjoiamhvbnRyaSIsImlhdCI6MTcyNDgzMDUwMCwiZXhwIjoxNzI0ODMyMzAwfQ.DIIKj42IECvGG0X2H9B0PbCRpF7fA__nanV3wsedIzU",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjgyNmI2NWUyLTZkM2MtNDgzMy05MTdlLWMwNzdlMDQyZjczMCIsInVzZXJuYW1lIjoicGV0ZXIiLCJpYXQiOjE3MjQ1NzIzNzcsImV4cCI6MTcyNDU3NDE3N30.vWW8OlZUBRPEyoTv_opUUffCP8UYIhG4pZdMxAHcrb4",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{url}}/todos/d3720281-5cc3-41b1-87e5-3157e88d4eaf/delete",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"todos",
+						"d3720281-5cc3-41b1-87e5-3157e88d4eaf",
+						"delete"
+					]
+				},
+				"description": "This endpoint to switch is_deleted status for soft delete. Can be used to retrieve back some specific todo."
+			},
+			"response": [
+				{
+					"name": "200 status",
+					"originalRequest": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjgyNmI2NWUyLTZkM2MtNDgzMy05MTdlLWMwNzdlMDQyZjczMCIsInVzZXJuYW1lIjoicGV0ZXIiLCJpYXQiOjE3MjQ1NzIzNzcsImV4cCI6MTcyNDU3NDE3N30.vWW8OlZUBRPEyoTv_opUUffCP8UYIhG4pZdMxAHcrb4",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/todos/d3720281-5cc3-41b1-87e5-3157e88d4eaf/delete",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"todos",
+								"d3720281-5cc3-41b1-87e5-3157e88d4eaf",
+								"delete"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Length",
+							"value": "294"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 28 Aug 2024 08:04:39 GMT"
+						},
+						{
+							"key": "Etag",
+							"value": "W/\"126-L+3vgIOF/BrMGuzghzdpm/dOILk\""
+						},
+						{
+							"key": "Server",
+							"value": "railway-edge"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "X-Request-Id",
+							"value": "p6fZGgvpSJWn-iHiBo6mEA_1721921752"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": true,\n    \"message\": \"status delete updated\",\n    \"data\": {\n        \"id\": \"d3720281-5cc3-41b1-87e5-3157e88d4eaf\",\n        \"user_id\": \"5419ad40-e47e-48bf-9cd4-e65ccc703c9a\",\n        \"title\": \"Jalan sore\",\n        \"description\": \"Keliling stadion jam 4 sore\",\n        \"is_completed\": true,\n        \"is_deleted\": true,\n        \"created_at\": \"2024-08-28T07:54:44.809Z\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "DELETE hard delete todo",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjU0MTlhZDQwLWU0N2UtNDhiZi05Y2Q0LWU2NWNjYzcwM2M5YSIsInVzZXJuYW1lIjoiamhvbnRyaSIsImlhdCI6MTcyNDgzMjk0MiwiZXhwIjoxNzI0ODM0NzQyfQ.WoZp67hp3FyBZJu5DooYWGUEU-ysL8wWqWPuQTqL7Nc",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjgyNmI2NWUyLTZkM2MtNDgzMy05MTdlLWMwNzdlMDQyZjczMCIsInVzZXJuYW1lIjoicGV0ZXIiLCJpYXQiOjE3MjQ1NzIzNzcsImV4cCI6MTcyNDU3NDE3N30.vWW8OlZUBRPEyoTv_opUUffCP8UYIhG4pZdMxAHcrb4",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{url}}/todos/71ea81e6-6872-4124-8cd7-9ee60018b227",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"todos",
+						"71ea81e6-6872-4124-8cd7-9ee60018b227"
+					]
+				},
+				"description": "This endpoint completely delete todo from database."
+			},
+			"response": [
+				{
+					"name": "200 status",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjgyNmI2NWUyLTZkM2MtNDgzMy05MTdlLWMwNzdlMDQyZjczMCIsInVzZXJuYW1lIjoicGV0ZXIiLCJpYXQiOjE3MjQ1NzIzNzcsImV4cCI6MTcyNDU3NDE3N30.vWW8OlZUBRPEyoTv_opUUffCP8UYIhG4pZdMxAHcrb4",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/todos/71ea81e6-6872-4124-8cd7-9ee60018b227",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"todos",
+								"71ea81e6-6872-4124-8cd7-9ee60018b227"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Length",
+							"value": "52"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 28 Aug 2024 08:17:30 GMT"
+						},
+						{
+							"key": "Etag",
+							"value": "W/\"34-x5RUIaZTBbZR9RJ7/4YZGHJYGWc\""
+						},
+						{
+							"key": "Server",
+							"value": "railway-edge"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "X-Request-Id",
+							"value": "9gHp0PovRsC6O59jhrMQ-w_3176973899"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": true,\n    \"message\": \"todo deleted\",\n    \"data\": null\n}"
+				},
+				{
+					"name": "404 status",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjgyNmI2NWUyLTZkM2MtNDgzMy05MTdlLWMwNzdlMDQyZjczMCIsInVzZXJuYW1lIjoicGV0ZXIiLCJpYXQiOjE3MjQ1NzIzNzcsImV4cCI6MTcyNDU3NDE3N30.vWW8OlZUBRPEyoTv_opUUffCP8UYIhG4pZdMxAHcrb4",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/todos/71ea81e6-6872-4124-8cd7-9ee60018b224",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"todos",
+								"71ea81e6-6872-4124-8cd7-9ee60018b224"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Length",
+							"value": "55"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 28 Aug 2024 08:18:36 GMT"
+						},
+						{
+							"key": "Etag",
+							"value": "W/\"37-G4XVJrqowiesQA7h0w/2ePpxI5o\""
+						},
+						{
+							"key": "Server",
+							"value": "railway-edge"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "X-Request-Id",
+							"value": "4L70EVwGQM2mxSdkBE67Iw_1721921752"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": false,\n    \"message\": \"Todo not found\",\n    \"data\": null\n}"
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "inherit"
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "port",
+			"value": "8000",
+			"type": "string",
+			"disabled": true
+		},
+		{
+			"key": "url",
+			"value": "https://binar-mock-test-jhontriboyke-production.up.railway.app",
+			"type": "string"
+		}
+	]
+}
