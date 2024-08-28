@@ -30,7 +30,7 @@ module.exports = {
         [user_id]
       );
     } catch (error) {
-      throw new UnauthorizedError("You cannot access this resource");
+      throw error;
     }
   },
 };
