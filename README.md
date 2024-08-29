@@ -180,7 +180,7 @@ This endpoint is to delete todo completely from database by provide todo id as p
 Method: DELETE
 Authorization: Bearer <token>
 
-https://binar-mock-test-jhontriboyke-production.up.railway.app/todos/:todo_id/delete
+https://binar-mock-test-jhontriboyke-production.up.railway.app/todos/:todo_id
 ```
 
 #### Example Response :
